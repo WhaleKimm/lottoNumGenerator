@@ -30,5 +30,36 @@
             <p>#파이썬#딥러닝#CV</p>
         </div>
     </div>
+    <div class="main">
+        <div class="numberdiv">
+            <div class="top-div">
+                <div class="top-div-name">오늘의 번호</div>
+            </div>
+            <div class="numberset">
+                <div class="lottocircle"><p class="value">5</div>
+                <div class="lottocircle"><p class="value">10</div>
+                <div class="lottocircle"><p class="value">21</div>
+                <div class="lottocircle"><p class="value">37</div>
+                <div class="lottocircle"><p class="value">41</div>
+                <div class="lottocircle"><p class="value">42</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var number = document.getElementsByClassName("lottocircle");
+        for(var i = 0; i<number.length ; i++){
+            if(parseInt(number[i].textContent)>=40){
+                number[i].style="background-color:#8b00ff";
+            }else if(parseInt(number[i].textContent)>=30){
+                number[i].style="background-color:#146eb4";
+            }else if(parseInt(number[i].textContent)>=20){
+                number[i].style="background-color:#c1d82f";
+            }else if(parseInt(number[i].textContent)>=10){
+                number[i].style="background-color:#fbb034";
+            }else{
+                number[i].style="background-color:#ff0000";
+            }
+        }
+    </script>
 </body>
 </html>
