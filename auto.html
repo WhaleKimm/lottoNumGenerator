@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="ko">
     <head>
-        <title>오늘의 번호</title>
+        <title>행운생성기</title>
+        <link rel="icon" type="image/png" href="favicon.png">
         <meta charset="utf-8">
         <meta name="description" content="오늘의 번호, 무료 로또 번호 생성기입니다.">
         <meta property="og:title" content="오늘의 번호"/>
@@ -9,99 +10,17 @@
         <meta property="og:url" content="https://whalekimm.github.io/lottoNumGenerator/"/>
         <meta property="og:description" content="오늘의 번호, 무료 로또 번호 생성기입니다. 모두 대박나세요!"/>
         <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="jquery-3.1.1.js"></script>
         <link rel="stylesheet" type="text/css" href="select.css">
-        <script>
-        function drawcolor(){
-            var number = document.getElementsByClassName("lottocircle");
-            for (var i = 0 ; i < number.length ; i++) {
-                if(parseInt(number[i].textContent)>=40){
-                    number[i].style="background-color:#000";
-                }else if(parseInt(number[i].textContent)>=30){
-                    number[i].style="background-color:#ea4c89";
-                }else if(parseInt(number[i].textContent)>=20){
-                    number[i].style="background-color:#0057ff";
-                }else if(parseInt(number[i].textContent)>=10){
-                    number[i].style="background-color:#32c766"; 
-                }   
-                else{
-                    number[i].style="background-color:#f48024";  
-                } 
-            }
-        }
-        function randomlottoNumber () {
-            var lotto = [];
-            var cnt = 0;
-            var flag = true;
-            while (cnt < 6) {
-                var number = 0; 
-                number = parseInt(Math.random() * 45) + 1; 
-                for (var i = 0; i < cnt; i++) { 
-                    if (lotto[i] == number) {
-                        flag = false;
-                    }
-                }
-                if (flag==true) { 
-                    lotto[cnt] = number; 
-                    cnt++;
-                }
-                flag = true; 
-            }
-            sort_lotto = lotto.sort(function (a,b){ return a-b; });
-            return sort_lotto;
-        }
-        function milli() {
-            return new Promise(resolve => {
-                setTimeout(() => {
-                resolve('resolved');
-                }, 500);
-            });
-        }
-
-        async function adddiv(j){
-            for(i=0;i<j;i++)
-            {   
-                await milli();
-                lottoarray = randomlottoNumber();
-                $('#div').append($('<div class="numberdiv"><div class="top-div"><div class="top-div-name">'+(i+1)+'번째 오늘의번호(자동)</div></div><div class="numberset"><div class="lottocircle"><p class="value">'+lottoarray[0]+'</p></div><div class="lottocircle"><p class="value">'+lottoarray[1]+'</p></div><div class="lottocircle"><p class="value">'+lottoarray[2]+'</p></div><div class="lottocircle"><p class="value">'+lottoarray[3]+'</p></div><div class="lottocircle"><p class="value">'+lottoarray[4]+'</p></div><div class="lottocircle"><p class="value">'+lottoarray[5]+'</p></div></div></div>'));
-                drawcolor();
-            }
-        }
-         $(document).ready(function(){
-            
-                $('#option1').click(function(){ 
-                    $("#app-cover").hide();
-                    adddiv(1);
-                });
-                $('#option5').click(function(){ 
-                    $("#app-cover").hide(); 
-                    adddiv(5);
-                });
-                $('#option10').click(function(){ 
-                    $("#app-cover").hide(); 
-                    adddiv(10);
-                });
-                $('#option15').click(function(){ 
-                    $("#app-cover").hide(); 
-                    adddiv(15);
-                });
-                $('#option20').click(function(){ 
-                    $("#app-cover").hide(); 
-                    adddiv(20);
-                    
-                });
-        });
-        </script>
     </head>
 <body>
     <nav class="navigator">
         <div class="nav_area">
-            <a class="icon" href="/lottoNumGenerator/">
+            <a class="icon" href="index.html">
                 <i class="text">오늘의 번호</i> 
             </a>
             <div class="nav_group">
-                <a class="nav_link" href="/lottoNumGenerator/auto.html">자동번호</a>
-                <a class="nav_link" href="/lottoNumGenerator/semiauto.html">반자동번호</a>
+                <a class="nav_link" href="auto.html">자동번호</a>
+                <a class="nav_link" href="semiauto.html">반자동번호</a>
             </div>
         </div>
     </nav>
@@ -149,13 +68,21 @@
             </div>
     </div>
     </div>
+
     <div class="footer">
-        <img src="./WhaleKim.jpg" width="100" height="100" class="circle">
-        <p class="name">WhaleKim<br></p>
-        <div class="detail">
-            <p>blog : <a class="blog-link" href="https://whalekimm.github.io/lottoNumGenerator/">https://whalekimm.github.io/lottoNumGenerator/</a></p>
-            <p>#파이썬#딥러닝#CV</p>
+        <div class="image-description">
+            <img src="whale.png" width="100" height="100" class="circle">
+            <div class="text">
+                <p class="name">WhaleKim</p>
+                <div class="detail">
+                    <p>github : <a class="github-link" href="https://github.com/WhaleKimm">깃허브</a></p>
+                    <p>#파이썬#딥러닝#CV#GPT</p>
+                </div>
+            </div>
         </div>
     </div>
+    
+    <script src="jquery-3.1.1.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
