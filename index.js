@@ -69,12 +69,15 @@ async function adddiv(j){
 
         window.scrollTo(0,document.body.scrollHeight);
     }
-    if (j >= 10 && j < 15) {
-        var additionalSpace = 250; // Additional space in pixels for 5개
-    } else if (j >= 15 && j < 20) {
+    if (j >= 5 && j < 10) {
+        var additionalSpace = 150; // Additional space in pixels for 5개
+    }
+    else if (j >= 10 && j < 15) {
         var additionalSpace = 750; // Additional space in pixels for 10개
+    } else if (j >= 15 && j < 20) {
+        var additionalSpace = 1050; // Additional space in pixels for 15개
     } else if (j >= 20) {
-        var additionalSpace = 1250; // Additional space in pixels for 20개
+        var additionalSpace = 1750; // Additional space in pixels for 20개
     }
     
     // Add additional space below the main content

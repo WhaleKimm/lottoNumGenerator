@@ -81,15 +81,20 @@ $(document).ready(function(){
             lottoarray = randomlottoNumber();
             $('#div').append($('<div class="numberdiv"><div class="top-div"><div class="top-div-name">'+(i+1)+'번째 오늘의번호</div></div><div class="numberset"><div class="lottocircle"><p class="value">'+lottoarray[0]+'</p></div><div class="lottocircle"><p class="value">'+lottoarray[1]+'</p></div><div class="lottocircle"><p class="value">'+lottoarray[2]+'</p></div><div class="lottocircle"><p class="value">'+lottoarray[3]+'</p></div><div class="lottocircle"><p class="value">'+lottoarray[4]+'</p></div><div class="lottocircle"><p class="value">'+lottoarray[5]+'</p></div></div></div>'));
             drawcolor();
+
+            window.scrollTo(0,document.body.scrollHeight);
         }
         // Determine additional space based on the number of generated numbers
         var additionalSpace = 0;
-        if (j >= 10 && j < 15) {
-            additionalSpace = 250;
+        if (j >= 5 && j < 10) {
+            var additionalSpace = 150; // Additional space in pixels for 5개
+        }
+        else if (j >= 10 && j < 15) {
+            var additionalSpace = 750; // Additional space in pixels for 10개
         } else if (j >= 15 && j < 20) {
-            additionalSpace = 750;
+            var additionalSpace = 1050; // Additional space in pixels for 15개
         } else if (j >= 20) {
-            additionalSpace = 1250;
+            var additionalSpace = 1750; // Additional space in pixels for 20개
         }
         $('body').css('padding-bottom', additionalSpace + 'px');
         
