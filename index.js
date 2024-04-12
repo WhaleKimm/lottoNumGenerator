@@ -45,19 +45,33 @@ function milli() {
 }
 
 async function adddiv(j){
+    $('#div').empty();
+    // Reset the padding-bottom to remove the additional space
+    $('body').css('padding-bottom', '0');
     // Hide the footer
     $('.footer').hide();
+    // Hide the redraw button initially
+    $('#redraw-button').hide();
+
+    // Add a redraw button to redraw the numbers
+    $('#redraw-button').click(function(){ 
+        var num = $('.numberdiv').length;
+        $('.numberdiv').remove();
+        adddiv(num);
+    });
 
     for(i=0;i<j;i++)
     {   
         await milli();
         lottoarray = randomlottoNumber();
-        $('#div').append($('<div class="numberdiv"><div class="top-div"><div class="top-div-name">'+(i+1)+'번째 오늘의번호(자동)</div></div><div class="numberset"><div class="lottocircle"><p class="value">'+lottoarray[0]+'</p></div><div class="lottocircle"><p class="value">'+lottoarray[1]+'</p></div><div class="lottocircle"><p class="value">'+lottoarray[2]+'</p></div><div class="lottocircle"><p class="value">'+lottoarray[3]+'</p></div><div class="lottocircle"><p class="value">'+lottoarray[4]+'</p></div><div class="lottocircle"><p class="value">'+lottoarray[5]+'</p></div></div></div>'));
+        $('#div').append($('<div class="numberdiv"><div class="top-div"><div class="top-div-name">'+(i+1)+'번째 오늘의번호</div></div><div class="numberset"><div class="lottocircle"><p class="value">'+lottoarray[0]+'</p></div><div class="lottocircle"><p class="value">'+lottoarray[1]+'</p></div><div class="lottocircle"><p class="value">'+lottoarray[2]+'</p></div><div class="lottocircle"><p class="value">'+lottoarray[3]+'</p></div><div class="lottocircle"><p class="value">'+lottoarray[4]+'</p></div><div class="lottocircle"><p class="value">'+lottoarray[5]+'</p></div></div></div>'));
         drawcolor();
 
         window.scrollTo(0,document.body.scrollHeight);
     }
-    if (j >= 10 && j < 15) {
+    if (j >= 5 && j < 10) {
+        var additionalSpace = 300; // Additional space in pixels for 5개
+    }else if (j >= 10 && j < 15) {
         var additionalSpace = 750; // Additional space in pixels for 5개
     } else if (j >= 15 && j < 20) {
         var additionalSpace = 1250; // Additional space in pixels for 10개
@@ -68,12 +82,17 @@ async function adddiv(j){
     // Add additional space below the main content
     $('body').css('padding-bottom', additionalSpace + 'px');
     
-
+    // Show the redraw button after generating numbers
+    $('#redraw-button').show();
     // Show the footer after generating numbers
     $('.footer').show();
 }
 
 $(document).ready(function(){
+    // Hide the redraw button initially
+    $('#redraw-button').hide();
+    // Clear the previous numbers
+    
     $('#option1').click(function(){ 
         $("#app-cover").hide();
         adddiv(1);
@@ -94,4 +113,6 @@ $(document).ready(function(){
         $("#app-cover").hide(); 
         adddiv(20); 
     });
+    
 });
+
