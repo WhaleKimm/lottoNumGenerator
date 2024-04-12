@@ -218,4 +218,23 @@ p{
     left: 50%;
     transform: translateX(-50%);
 }
+#redraw-button-semiauto {
+    position: relative; /* 상대적 위치 설정 */
+    margin-top: 20px; /* nav와의 간격 조정 */
+    z-index: 1000; /* 다른 요소 위에 배치 */
+    left: 50%; /* 화면 가로폭의 중앙 */
+    transform: translateX(-50%); /* x 축 가운데로 이동 */
+
+    background-color: #4CAF50; /* 배경색 */
+    color: white; /* 텍스트 색상 */
+    padding: 15px 32px; /* 패딩 */
+    text-align: center; /* 텍스트 정렬 */
+    border: none; /* 테두리 제거 */
+    font-size: 16px; /* 폰트 크기 */
+    border-radius: 12px; /* 모서리 둥글게 처리 */
+    cursor: pointer; /* 호버 시 커서 변경 */
+}
+
+
+
 
